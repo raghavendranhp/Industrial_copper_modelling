@@ -1,5 +1,5 @@
 
-# Industrial Copper Modeling Project
+# Industrial Copper Modeling
 
 ## Introduction
 
