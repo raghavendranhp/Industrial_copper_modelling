@@ -1,5 +1,3 @@
----
-
 # Industrial Copper Modeling
 
 ### Domain: Manufacturing
