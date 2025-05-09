@@ -84,7 +84,7 @@ with tab1:
             qty = st.text_input("Quantity Tons")
             thickness = st.text_input("Thickness")
             width = st.text_input("Width")
-            customer = st.text_input("Customer ID")
+            customer = 15216550
             submit = st.form_submit_button("PREDICT SELLING PRICE")
 
         if submit:
@@ -108,7 +108,7 @@ with tab2:
             cqty = st.text_input("Quantity Tons")
             cthickness = st.text_input("Thickness")
             cwidth = st.text_input("Width")
-            ccustomer = st.text_input("Customer ID")
+            ccustomer = 15216550
             cselling = st.text_input("Selling Price")
         with col3:
             citem = st.selectbox("Item Type", item_type_options, key="citem")
