@@ -59,7 +59,7 @@ with tab1:
                 """, unsafe_allow_html=True)
     
             flag=0 
-            pattern = "^(?:\d+|\d*\.\d+)$"
+            pattern = r"^(?:\d+|\d*\.\d+)$"
             for i in [quantity_tons,thickness,width,customer]:             
                 if re.match(pattern, i):
                     pass
@@ -115,7 +115,7 @@ with tab2:
                 csubmit_button = st.form_submit_button(label="PREDICT STATUS")
     
             cflag=0 
-            pattern = "^(?:\d+|\d*\.\d+)$"
+            pattern = r"^(?:\d+|\d*\.\d+)$"
             for k in [cquantity_tons,cthickness,cwidth,ccustomer,cselling]:             
                 if re.match(pattern, k):
                     pass
