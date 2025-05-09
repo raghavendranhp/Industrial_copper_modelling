@@ -134,4 +134,11 @@ with tab2:
                     st.warning("❌ The Status is: LOST")
 
 # Footer
-st.markdown('<h6 style="color:#00999959;">Raghavendran S</h6>', unsafe_allow_html=True)
+st.markdown("""
+            ## <span style="font-size: 18px;">:orange[Created By]:</span><br>
+            Raghavendran S,<br>
+            Data Scientist Aspirant,<br>
+            email-id: [raghavendranhp@gmail.com](mailto:raghavendranhp@gmail.com)<br>
+            [LinkedIn-Profile](https://www.linkedin.com/in/raghavendransundararajan/),<br>
+            [GitHub-Link](https://github.com/raghavendranhp)
+        """, unsafe_allow_html=True)
