@@ -81,9 +81,9 @@ with tab1:
             product = st.selectbox("Product Reference", product_refs, key="product")
         with col3:
             st.markdown('<p style="color:#00999980;">NOTE: Min & Max given for reference, you can enter any value</p>', unsafe_allow_html=True)
-            qty = st.text_input("Quantity Tons")
-            thickness = st.text_input("Thickness")
-            width = st.text_input("Width")
+            qty = st.text_input("Quantity Tons (Min:611728 & Max:1722207579)")
+            thickness = st.text_input("Thickness  (Min:0.18 & Max:400)")
+            width = st.text_input("Width (Min:1, Max:2990)")
             customer = '15216550'
             submit = st.form_submit_button("PREDICT SELLING PRICE")
 
@@ -105,9 +105,9 @@ with tab2:
     with st.form("form_status"):
         col1, col2, col3 = st.columns([5, 1, 5])
         with col1:
-            cqty = st.text_input("Quantity Tons")
-            cthickness = st.text_input("Thickness")
-            cwidth = st.text_input("Width")
+            cqty = st.text_input("Quantity Tons (Min:611728 & Max:1722207579)")
+            cthickness = st.text_input("Thickness  (Min:0.18 & Max:400)")
+            cwidth = st.text_input("Width (Min:1, Max:2990)")
             ccustomer = '15216550'
             cselling = st.text_input("Selling Price")
         with col3:
