@@ -1,45 +1,102 @@
+---
 
 # Industrial Copper Modeling
 
-## Introduction
+### Domain: Manufacturing
 
-The Industrial Copper Modeling project is a data science project aimed at utilizing machine learning techniques to address challenges in the copper industry, specifically focusing on sales and pricing data. The project includes the development of regression and classification models, as well as the creation of an interactive web application using Streamlit.
+🔗 **Live App**: [Streamlit App](https://industrialcoppermodelling-ragha22.streamlit.app/)
 
-## Project Structure
+---
 
-The project follows a structured approach, including the following key components:
+## 📌 Problem Statement
 
-1. **Data Understanding and Preprocessing:**
-   - Identification of variable types and preprocessing steps.
-   - Treatment of outliers, missing values, and skewness.
+The copper industry often grapples with noisy, skewed sales and pricing data, making manual prediction and analysis inefficient and inaccurate. Additionally, the challenge of identifying quality leads based on sales status adds complexity to decision-making. This project aims to:
 
-2. **Exploratory Data Analysis (EDA):**
-   - Visualization of outliers and skewness using Seaborn's plots.
-   - Feature engineering and correlation analysis.
+* Build a **Regression Model** to predict the continuous variable `Selling_Price`.
+* Develop a **Classification Model** to predict lead conversion status (`WON` or `LOST`).
+* Create an **interactive Streamlit web application** to allow users to input features and get real-time predictions for either task.
 
-3. **Model Building and Evaluation:**
-   - Regression model using Decision Tree Regressor.
-   - Classification model using Decision Tree Classifier.
-   - Model optimization and evaluation metrics.
+---
 
-4. **Streamlit Web Application:**
-   - Creation of an interactive web page for model predictions.
-   - Input fields for user-provided data.
-   - Display of predicted 'Selling_Price' or 'Status.'
+## 🗂️ Dataset Description
 
-5. **Model Persistence:**
-   - Saving of trained models, scaler, and encoders using the Pickle module.
+The dataset contains information on copper product sales including transactional, customer, and product specifications.
 
-6. **Learning Outcomes:**
-   - Development of Python programming skills.
-   - Proficiency in data preprocessing, EDA, and machine learning modeling.
-   - Experience in creating interactive web applications with Streamlit.
+| Feature         | Description                                          |
+| --------------- | ---------------------------------------------------- |
+| `id`            | Unique identifier for each record                    |
+| `item_date`     | Transaction date                                     |
+| `quantity tons` | Quantity sold (in tons)                              |
+| `customer`      | Customer identifier                                  |
+| `country`       | Customer country                                     |
+| `status`        | Status of deal (e.g., WON, LOST)                     |
+| `item type`     | Type of item sold                                    |
+| `application`   | Application code for item                            |
+| `thickness`     | Thickness of the item                                |
+| `width`         | Width of the item                                    |
+| `material_ref`  | Material reference code                              |
+| `product_ref`   | Product reference code                               |
+| `delivery date` | Delivery date                                        |
+| `selling_price` | Selling price of the product (Target for Regression) |
 
-7. **Project Evaluation Metrics:**
-   - Code modularity and maintainability.
-   - Portability across different environments.
-   - Availability of a public GitHub repository with proper documentation.
-   - Adherence to PEP 8 coding standards.
+---
+
+## 🔍 Approach
+
+### 1. Data Understanding
+
+* Identified variable types (categorical/continuous)
+* Treated anomalies in `material_ref` (e.g., values starting with `00000`)
+* Handled reference columns as categorical features
+
+### 2. Data Preprocessing
+
+* Imputed missing values using statistical techniques (mean/median)
+* Handled outliers via **IQR method** and **Isolation Forest**
+* Treated skewness with **log transformation** and **Box-Cox**
+* Encoded categorical variables using **One-Hot** and **Label Encoding**
+
+### 3. Exploratory Data Analysis (EDA)
+
+* Visualized skewness and outliers using `Seaborn` (boxplot, violinplot)
+* Correlation heatmaps to drop highly correlated features
+
+### 4. Feature Engineering
+
+* Created new informative features when needed
+* Dropped redundant or highly correlated features
+
+### 5. Model Building
+
+#### Regression:
+
+* Tree-based models (Random Forest, XGBoost) used due to data non-linearity and noise
+* Target: `selling_price`
+* Evaluation Metrics: MAE, RMSE, R² Score
+
+#### Classification:
+
+* Models: Logistic Regression, ExtraTreesClassifier, XGBClassifier
+* Target: `status` (filtered for `WON`, `LOST`)
+* Evaluation Metrics: Accuracy, Precision, Recall, F1-score, AUC-ROC
+
+### 6. Streamlit Application
+
+* Choose task: Regression or Classification
+* Input fields for all feature columns (excluding target)
+* Model predictions displayed instantly
+* Behind the scenes:
+
+  * Applied same preprocessing (scaling, encoding, transformation)
+  * Loaded trained models using `pickle`
+
+---
+
+## ✅ Conclusion
+
+This end-to-end machine learning solution offers real-time insights into copper product pricing and lead conversion. By automating predictions and deploying them via a simple web app, the project supports better decision-making in the manufacturing domain.
+
+
 
 ## Getting Started
 
